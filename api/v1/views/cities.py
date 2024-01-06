@@ -1,4 +1,4 @@
-#!usr/bin/python3
+#!/usr/bin/python3
 """handles api requests to the City object"""
 from api.v1.views import app_views
 from flask import abort, jsonify, request
