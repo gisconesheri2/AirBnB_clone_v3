@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+"""define blueprint routes for the index page"""
 from api.v1.views import app_views
 from flask import jsonify
 
