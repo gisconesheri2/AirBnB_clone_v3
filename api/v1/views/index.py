@@ -10,10 +10,12 @@ from models.review import Review
 from models.user import User
 from models import storage
 
+
 @app_views.route('/status', methods=['GET'])
 def show_status():
     """return a JSON OK message"""
     return jsonify({'status': 'OK'})
+
 
 @app_views.route('/stats', methods=['GET'])
 def count_objects():

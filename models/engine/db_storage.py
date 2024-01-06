@@ -82,7 +82,7 @@ class DBStorage:
             return (None)
         for key, obj in cls_objects.items():
             if key.split('.')[1] == id:
-                return(obj)
+                return (obj)
         else:
             return (None)
 
