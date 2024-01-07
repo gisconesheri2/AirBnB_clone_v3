@@ -80,22 +80,3 @@ class Place(BaseModel, Base):
                 except KeyError:
                     pass
             return amenity_instances
-
-        """@property
-        def amenities(self):
-            ""getter attribute returns the list of Amenity instances""
-            from models.amenity import Amenity
-            amenity_list = []
-            all_amenities = models.storage.all(Amenity)
-            for amenity in all_amenities.values():
-                if amenity.place_id == self.id:
-                    self.amenity_ids.append(amenity.id)
-                    amenity_list.append(amenity)
-            return amenity_list"""
-
-        """@amenities.setter
-        def amenities(self, obj):
-           ""adds @obj's id to the amenity_ids list
-            if it is an Amenity object""
-            if type(obj) is Amenity:
-                self.amenity_ids.append(obj.id)"""
