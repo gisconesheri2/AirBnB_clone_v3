@@ -39,6 +39,7 @@ def delete_amenity_from_place(place_id, amenity_id):
             abort(404)
     else:
         try:
+            delattr(amenity, "place_id")
             place.amenity_ids.remove(amenity.id)
         except Exception:
             abort(404)

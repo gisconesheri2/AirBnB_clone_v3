@@ -4,7 +4,7 @@
 from api.v1.views import app_views
 from flask import Flask, jsonify, make_response
 from flask_cors import CORS
-from models import storage
+from models import storage, storage_t
 from os import getenv
 
 app = Flask(__name__)
