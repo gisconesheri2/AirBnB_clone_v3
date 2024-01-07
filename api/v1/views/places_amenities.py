@@ -13,12 +13,9 @@ def get_all_place_amenities(place_id):
     if (place is None):
         abort(404)
 
-    if (storage_t == 'db'):
-        place_amenities = place.amenities
-    else:
-        place_amenities = place.amenity_ids
+    place_amenities = place.amenities
     all_amenities_list = []
-    for amenity in place.amenities:
+    for amenity in place_amenities:
         all_amenities_list.append(amenity.to_dict())
     return (jsonify(all_amenities_list))
 
@@ -42,7 +39,7 @@ def delete_amenity_from_place(place_id, amenity_id):
             abort(404)
     else:
         try:
-            place.amenity_ids.remove(amenity)
+            place.amenity_ids.remove(amenity.id)
         except Exception:
             abort(404)
 
@@ -68,8 +65,8 @@ def link_place_new_amenity(place_id, amenity_id):
             storage.save()
             return (jsonify(amenity.to_dict()), 201)
     else:
-        if amenity not in place.amenity_ids:
-            place.amenity_ids.append(amenity)
+        if amenity.id not in place.amenity_ids:
+            place.amenity_ids.append(amenity.id)
             storage.save()
             return (jsonify(amenity.to_dict()), 201)
     return (jsonify(amenity.to_dict()), 200)
