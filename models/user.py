@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """ holds class User"""
+import hashlib
 import models
 from models.base_model import BaseModel, Base
 from os import getenv
@@ -26,4 +27,11 @@ class User(BaseModel, Base):
 
     def __init__(self, *args, **kwargs):
         """initializes user"""
+        if (kwargs):
+            pwd = kwargs.get("password")
+            kwargs["password"] = hashlib.md5(bytes(pwd, 'utf-8')).digest()
+        if (args):
+            l_args = list(args)
+            l_args[1] = hashlib.md5(bytes(args[1], 'utf-8')).digest()
+            args = tuple(l_args)
         super().__init__(*args, **kwargs)
