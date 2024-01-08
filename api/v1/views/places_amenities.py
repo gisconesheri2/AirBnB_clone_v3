@@ -2,8 +2,8 @@
 """handles api requests to the Place-Amenity  objects relationship"""
 from api.v1.views import app_views
 from flask import abort, jsonify, request
-from models.amenity import Amenity
 from models import storage, storage_t
+from models.amenity import Amenity
 
 
 @app_views.route('/places/<place_id>/amenities', methods=['GET'])
