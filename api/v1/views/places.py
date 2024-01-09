@@ -104,7 +104,6 @@ def search_place():
     states_terms = search_dict.get('states', None)
     cities_terms = search_dict.get('cities', None)
     amenities_terms = search_dict.get('amenities', None)
-    print(search_dict)
     if (len(search_dict) == 0):
         all_places = storage.all('Place')
         all_places_list = []
