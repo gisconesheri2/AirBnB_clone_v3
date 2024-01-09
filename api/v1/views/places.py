@@ -98,12 +98,13 @@ def update_place(place_id):
 def search_place():
     """search Places with a query parameters in a json string"""
     search_dict = request.get_json(silent=True)
-    if not search_dict:
+    if search_dict is None:
         abort(400, 'Not a JSON')
 
     states_terms = search_dict.get('states', None)
     cities_terms = search_dict.get('cities', None)
     amenities_terms = search_dict.get('amenities', None)
+    print(search_dict)
     if (len(search_dict) == 0):
         all_places = storage.all('Place')
         all_places_list = []
