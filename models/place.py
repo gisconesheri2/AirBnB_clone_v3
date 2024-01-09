@@ -74,7 +74,7 @@ class Place(BaseModel, Base):
             amenities = storage.all('Amenity')
             amenity_instances = []
             for amenity_id in self.amenity_ids:
-                key = f'Amenity.{amenity_id}'
+                key = 'Amenity.{}'.format(amenity_id)
                 try:
                     amenity_instances.append(amenities[key])
                 except KeyError:
